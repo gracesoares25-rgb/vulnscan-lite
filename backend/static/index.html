@@ -53,12 +53,12 @@
 
     <h1>Website Vulnerability Scanner</h1>
 
-    <input type="text" id="urlInput" placeholder="Enter website URL">
-    <button onclick="scanWebsite()">Scan</button>
+<input type="text" id="urlInput" placeholder="Enter website URL">
+<button onclick="scanWebsite()">Scan</button>
 
-    <div id="result"></div>
+<div id="result"></div>
 
-    <script>
+<script>
 async function scanWebsite() {
     const url = document.getElementById("urlInput").value;
 
@@ -68,7 +68,7 @@ async function scanWebsite() {
     }
 
     try {
-        const response = await fetch(`/scan?url=${encodeURIComponent(url)}`);
+        const response = await fetch("/scan?url=" + encodeURIComponent(url));
         const data = await response.json();
 
         document.getElementById("result").innerHTML =
@@ -76,7 +76,7 @@ async function scanWebsite() {
 
     } catch (error) {
         console.error("Error:", error);
-        alert("Something went wrong");
+        alert("Error scanning website");
     }
 }
 </script>
@@ -84,6 +84,7 @@ async function scanWebsite() {
 </body>
 
 </html>
+
 
 
 
