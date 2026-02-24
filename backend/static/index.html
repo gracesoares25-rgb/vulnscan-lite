@@ -62,7 +62,8 @@
         async function scanWebsite() {
             const url = document.getElementById("urlInput").value;
 
-            const response = await fetch("/scan", {
+            const response = await fetch(`/scan?url=${encodeURIComponent(url)}`);
+const data = await response.json();
     method: "POST",
     headers: {
         "Content-Type": "application/json"
@@ -105,4 +106,5 @@
 </body>
 
 </html>
+
 
