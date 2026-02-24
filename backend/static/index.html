@@ -62,7 +62,7 @@
         async function scanWebsite() {
             const url = document.getElementById("urlInput").value;
 
-            const response = await fetch(`http://127.0.0.1:8001/scan?url=${url}`);
+            const response = await fetch("/scan", {
             const data = await response.json();
 
             const resultBox = document.getElementById("resultBox");
@@ -97,4 +97,5 @@
     </script>
 
 </body>
+
 </html>
